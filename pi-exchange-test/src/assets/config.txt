@@ -1,0 +1,4 @@
+{
+    "apiUrl": "https://api.giphy.com/v1/gifs/",
+    "apiKey":"40IEDYWqlEELoXooslq7p85R75cYdd4i"
+}

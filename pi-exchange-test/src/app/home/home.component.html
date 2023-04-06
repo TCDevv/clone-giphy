@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="title">
+        <h1>Giphy Clone</h1>
+    </div>
+    <gif-container [listGif]="listFavoriteGif" (handleLike)="handleLike($event)">
+        <h2>Favorite GIF</h2>
+    </gif-container>
+    <gif-container [listGif]="listTrendingGif" (handleLike)="handleLike($event)">
+        <h2>Trending GIF</h2>
+    </gif-container>
+</div>

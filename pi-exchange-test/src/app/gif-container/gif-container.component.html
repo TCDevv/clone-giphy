@@ -1,0 +1,10 @@
+<div class="gif-container">
+    <ng-content select="h2"></ng-content>
+    <div class="list-gif">
+        <div class="gif" *ngFor="let gif of listGif">
+            <i class="fa-regular fa-heart" [class.liked]="gif.liked" (click)="handleLikeGif(gif)"></i>
+            <img src="{{gif.images.original.url}}" alt="">
+            <i class="fa-solid fa-link"></i>
+        </div>
+    </div>
+</div>
