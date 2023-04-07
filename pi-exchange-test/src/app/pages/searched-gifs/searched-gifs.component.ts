@@ -1,6 +1,13 @@
-import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  HostListener,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription, delay, finalize } from 'rxjs';
+import { SearchBoxComponent } from 'src/app/components/search-box/search-box.component';
 import { ApiService } from 'src/assets/shared/services/api.service';
 import { GlobalService } from 'src/assets/shared/services/global.service';
 import { StateService } from 'src/assets/shared/services/state.service';
@@ -11,12 +18,14 @@ import { StateService } from 'src/assets/shared/services/state.service';
   styleUrls: ['./searched-gifs.component.css'],
 })
 export class SearchedGifsComponent implements OnInit, OnDestroy {
+  @ViewChild('searchBox') searchBox: SearchBoxComponent;
   querySearch: string = '';
   limit: number = 50;
   listGif: any[] = [];
   isLoading: boolean = false;
   listFavoriteGifIds = [];
   subscriptions: Subscription[] = [];
+  inputValue: string = '';
   constructor(
     private route: ActivatedRoute,
     private api: ApiService,
@@ -27,6 +36,7 @@ export class SearchedGifsComponent implements OnInit, OnDestroy {
     let subscription = this.route.queryParams.subscribe((res: any) => {
       this.listGif = [];
       this.querySearch = res.query;
+      this.inputValue = res.query;
       this.getListSearchedGif(res.query, this.limit);
     });
     this.subscriptions.push(subscription);

@@ -1,6 +1,6 @@
 <div class="search-box">
     <form action="" #searchForm="ngForm" (ngSubmit)="search(searchForm)">
-        <input type="text" name="querySearch" ngModel placeholder="Search GIF" required>
+        <input type="text" name="querySearch" [(ngModel)]="value" ngModel placeholder="Search GIF" required>
         <button type="submit" [disabled]="searchForm.invalid"><i class="fa-solid fa-magnifying-glass"></i></button>
     </form>
 </div>
