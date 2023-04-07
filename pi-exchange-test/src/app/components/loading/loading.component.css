@@ -1,0 +1,29 @@
+.loading-bar{
+    width: 60vw;
+    height: 20px;
+    background-color:  rgb(255 219 231);
+    position: fixed;
+    bottom:20px;
+    left:50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    z-index: 100;
+}
+.loading-process{
+    position: absolute;
+    width: 5%;
+    height: 100%;
+    background-color: rgb(226, 59, 115);
+    border-radius: 10px;
+    left:0;
+    top:0;
+    animation: loading 1s ease infinite; 
+}
+@keyframes loading {
+    from{
+        left:0;
+    }
+    to{
+        left:95%;
+    }
+}

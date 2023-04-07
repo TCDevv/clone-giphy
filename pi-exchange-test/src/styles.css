@@ -6,3 +6,31 @@
     box-sizing: border-box;
     font-family: 'Poppins';
 }
+.container{
+    width: 100%;
+    height: 100vh;
+    padding:2rem;
+    display: flex;
+    flex-direction: column;
+    gap:50px;
+}
+.container .title>h1{
+    color:rgb(226, 59, 115);
+    text-transform: uppercase;
+    position: relative;
+    cursor: pointer;
+}
+.container .title>h1::after{
+    content:"TCDev";
+    color: #83b962;
+    font-size: 0.8rem;
+    position: absolute;
+    top:0;
+}
+.container .content-conainer{
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:50px;
+}

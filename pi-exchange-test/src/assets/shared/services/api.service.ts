@@ -23,4 +23,14 @@ export class ApiService {
       `${this.apiUrl}?api_key=${this.apiKey}&ids=${id.join(',')}`
     );
   }
+
+  GetGifById(id: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/${id}?api_key=${this.apiKey}`);
+  }
+
+  GetGifByQuery(query: string, limit: number = 50): Observable<any> {
+    return this.http.get(
+      `${this.apiUrl}/search?api_key=${this.apiKey}&q=${query}&limit=${limit}&offset=1&rating=g&lang=en`
+    );
+  }
 }

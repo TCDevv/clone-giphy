@@ -1,0 +1,43 @@
+<div class="gif-detail" *ngIf="gifInfo$ | async as gif">
+    <div class="gif-img">
+        <img src="{{gif.data.images.original.url}}" alt="">
+    </div>
+    <div class="gif-info">
+        <table>
+            <tr>
+                <td>Source</td>
+                <td>
+                    {{gif.data.images.original.width}}x{{gif.data.images.original.height}} px
+                </td>
+            </tr>
+            <tr>
+                <td>Frames</td>
+                <td>
+                    {{gif.data.images.original.frames}}
+                </td>
+            </tr>
+            <tr>
+                <td>Size</td>
+                <td>
+                    {{gif.data.images.original.size/1000 | byte}}
+                </td>
+            </tr>
+            <tr>
+                <td>Uploaded time</td>
+                <td>{{gif.data.import_datetime | date:'dd/MM/yyyy'}}</td>
+            </tr>
+            <tr>
+                <td>Rating</td>
+                <td>{{gif.data.rating}}</td>
+            </tr>
+            <tr *ngIf="gif.data.username">
+                <td>Username</td>
+                <td>{{gif.data.username}}</td>
+            </tr>
+            <tr *ngIf="gif.data.user.avatar_url">
+                <td></td>
+                <td><img src="{{gif.data.user.avatar_url}}" alt=""></td>
+            </tr>
+        </table>
+    </div>
+</div>

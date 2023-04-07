@@ -1,0 +1,41 @@
+.search-box{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.search-box>form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap:10px;
+}
+.search-box>form>input{
+    width: 45%;
+    height: 2.7rem;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 10px;
+    border:2px solid #ccc;
+    outline: none;
+    color: #666;
+    font-size: 1rem;
+}
+.search-box>form>button{
+    width: 5%;
+    height: 2.7rem;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(226, 59, 115);
+    outline: none;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.search-box>form>button:disabled{
+    background-color: #666;
+    pointer-events: none;
+}
+.search-box>form>button:hover{
+    background-color: rgb(219, 110, 146);
+}
