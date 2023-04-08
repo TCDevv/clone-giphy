@@ -1,7 +1,7 @@
 <div class="gif-container">
     <ng-content select="h2"></ng-content>
     <div class="list-gif">
-        <div class="gif" [style.width]="gif.images.original.widthRender+'px'" *ngFor="let gif of listGif">
+        <div class="gif" [style.width]="gif.images.original.widthRender+'rem'" *ngFor="let gif of listGif">
             <i class="fa-regular fa-heart" [class.liked]="gif.liked" (click)="handleLikeGif(gif)"></i>
             <img src="{{gif.images.original.url}}" routerLink="/gif/{{gif.id}}" alt="">
             <i class="fa-solid fa-link" routerLink="/gif/{{gif.id}}"></i>

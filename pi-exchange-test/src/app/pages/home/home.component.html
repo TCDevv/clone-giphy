@@ -1,7 +1,7 @@
 <search-box></search-box>
 <gif-container [listGif]="listFavoriteGif" (handleLike)="global.handleLikeGif($event,listFavoriteGif,listTrendingGif)">
-    <h2>Favorite GIF</h2>
+    <h2 style="font-size: 1.4rem;">Favorite GIF</h2>
 </gif-container>
 <gif-container [listGif]="listTrendingGif" (handleLike)="global.handleLikeGif($event,listFavoriteGif,listTrendingGif)">
-    <h2>Trending GIF</h2>
+    <h2 style="font-size: 1.4rem;">Trending GIF</h2>
 </gif-container>

@@ -51,3 +51,15 @@
     border-radius: 50%;
     border:1px solid rgb(181 181 181);
 }
+@media screen and (max-width: 480px) {
+    .gif-detail{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .gif-detail .gif-img{
+        width: 80%;
+    }
+    .gif-detail .gif-info{
+        width: 80%;
+    }
+}

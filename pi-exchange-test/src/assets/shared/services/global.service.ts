@@ -41,7 +41,7 @@ export class GlobalService {
     });
     gifs.forEach((i) => {
       i.images.original.widthRender =
-        (+i.images.original.width * 200) / +i.images.original.height;
+        (+i.images.original.width * 10) / +i.images.original.height;
     });
   }
 }
