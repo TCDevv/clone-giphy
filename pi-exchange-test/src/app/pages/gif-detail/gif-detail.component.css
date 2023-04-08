@@ -11,6 +11,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: linear-gradient(to right,#fff,rgb(221 221 221));
+    border-radius: 10px;
+    animation: linear-loading 1.5s infinite ease;
+}
+@keyframes linear-loading {
+    from{
+        background-image: linear-gradient(to right,#fff,rgb(221 221 221));
+    }
+    to{
+        background-image: linear-gradient(to left,#fff,rgb(221 221 221));
+    }
 }
 .gif-detail .gif-img>img{
     width: 100%;

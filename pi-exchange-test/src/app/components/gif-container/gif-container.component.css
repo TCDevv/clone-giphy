@@ -4,7 +4,7 @@
 }
 .gif-container .list-gif{
     width: 100%;
-    height: 200px;
+    height: 220px;
     display: flex;
     gap:5px;
     padding:10px;
@@ -23,10 +23,21 @@
     background-color: rgb(226, 59, 115); 
 }
 .gif-container .list-gif .gif{
-    height: 100%;
+    height: 200px;
     cursor: pointer;
     position: relative;
     transition: 0.3s ease;
+    background-image: linear-gradient(to right,#fff,rgb(221 221 221));
+    border-radius: 5px;
+    animation: linear-loading 1.5s infinite ease;
+}
+@keyframes linear-loading {
+    from{
+        background-image: linear-gradient(to right,#fff,rgb(221 221 221));
+    }
+    to{
+        background-image: linear-gradient(to left,#fff,rgb(221 221 221));
+    }
 }
 .gif-container .list-gif .gif:hover{
     scale:1.1;

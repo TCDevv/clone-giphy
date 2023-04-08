@@ -10,7 +10,7 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   getTrendyGif(
-    limit: number = 10,
+    limit: number = 25,
     rating: 'g' | 'pg' | 'pg-13' | 'r' = 'g'
   ): Observable<any> {
     return this.http.get(

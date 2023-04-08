@@ -1,7 +1,7 @@
 <search-box [value]="inputValue"></search-box>
 <div class="list-gif" *ngIf="listGif.length;else notHaveData">
-    <div class="gif" *ngFor="let gif of listGif">
-        <i class="fa-regular fa-heart" [class.liked]="gif.liked" (click)="global.handleLikeGif(gif,listGif)"></i>
+    <div class="gif" [style.width]="gif.images.original.widthRender+'px'" *ngFor="let gif of listGif">
+        <i class="fa-regular fa-heart" [class.liked]="gif.liked" (click)="global.handleLikeGif(gif,[],listGif)"></i>
         <img src="{{gif.images.original.url}}" routerLink="/gif/{{gif.id}}" alt="">
         <i class="fa-solid fa-link" routerLink="/gif/{{gif.id}}"></i>
     </div>

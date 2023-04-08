@@ -3,7 +3,7 @@ import { ApiService } from 'src/assets/shared/services/api.service';
 import { StateService } from 'src/assets/shared/services/state.service';
 import { Router } from '@angular/router';
 import { GlobalService } from 'src/assets/shared/services/global.service';
-import { Subscription } from 'rxjs';
+import { Subscription, take } from 'rxjs';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -19,13 +19,14 @@ export class HomeComponent implements OnInit, OnDestroy {
     private state: StateService,
     private router: Router,
     public global: GlobalService
-  ) {}
-
-  ngOnInit(): void {
+  ) {
     let subscription = this.state.listFavoriteGif$.subscribe(
       (res) => (this.listFavoriteGifIds = res)
     );
     this.subscriptions.push(subscription);
+  }
+
+  ngOnInit(): void {
     this.getListFavoriteGif();
     this.getListTrendyGif();
   }
@@ -43,12 +44,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   getListFavoriteGif() {
-    let subscription = this.state.listFavoriteGif$.subscribe((res) => {
-      if (res.length === 0) {
-        this.listFavoriteGif = [];
-        return;
-      }
-      let subscription2 = this.api.getGifsByIds(res).subscribe((rs) => {
+    let subscription = this.api
+      .getGifsByIds(this.listFavoriteGifIds)
+      .subscribe((rs) => {
         if (rs.meta.status === 200) {
           this.global.convertData(rs.data);
           this.listFavoriteGif = rs.data;
@@ -56,8 +54,6 @@ export class HomeComponent implements OnInit, OnDestroy {
           throw new Error('Can not get any favorite gif');
         }
       });
-      this.subscriptions.push(subscription2);
-    });
 
     this.subscriptions.push(subscription);
   }
