@@ -1,35 +1,46 @@
 import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { GifDetailComponent } from './pages/gif-detail/gif-detail.component';
+import { SearchedGifsComponent } from './pages/searched-gifs/searched-gifs.component';
+import { HomeComponent } from './pages/home/home.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { GifContainerComponent } from './components/gif-container/gif-container.component';
+import { BytePipe } from 'src/assets/shared/pipes/byte.pipe';
+import { SearchBoxComponent } from './components/search-box/search-box.component';
+import { LoadingComponent } from './components/loading/loading.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
+      imports: [AppRoutingModule, BrowserModule, HttpClientModule, FormsModule],
       declarations: [
-        AppComponent
+        AppComponent,
+        HomeComponent,
+        PageNotFoundComponent,
+        GifContainerComponent,
+        GifDetailComponent,
+        BytePipe,
+        SearchedGifsComponent,
+        SearchBoxComponent,
+        LoadingComponent,
       ],
     }).compileComponents();
   });
 
-  it('should create the app', () => {
+  it(`should have as title 'Giphy Clone \| TCDev'`, async () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    const app = fixture.debugElement.componentInstance;
+    expect(app.title).toEqual('Giphy Clone | TCDev');
   });
 
-  it(`should have as title 'pi-exchange-test'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('pi-exchange-test');
-  });
-
-  it('should render title', () => {
+  it('should render title in a h1 tag', async () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('pi-exchange-test app is running!');
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h1').textContent).toContain('Giphy Clone');
   });
 });
